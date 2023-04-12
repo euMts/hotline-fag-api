@@ -1,0 +1,6 @@
+fastapi==0.75.0
+uvicorn==0.16.0
+asyncio==3.4.3
+requests==2.26.0
+mysql-connector-python
+prettytable
