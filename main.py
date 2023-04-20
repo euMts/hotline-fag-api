@@ -70,6 +70,7 @@ async def add_experience_api(item: ModelUserNameExperience):
             "status":request["status"],
             "message":request["message"]
         }
+        print(f"ADD  EXPERIENCE --------- {retorno}")
         return JSONResponse(status_code=status.HTTP_200_OK, content=retorno)
     except Exception as e:
         return_item = {"status":"Error", "message":e}
@@ -82,7 +83,7 @@ async def get_experience_api(item: ModelUserName):
         experience = db.get_experience(user_name)["user_experience"]
         retorno = {
             "nome": user_name,
-            "experience": experience,
+            "experience": str(experience),
             "message":""
         }
         return JSONResponse(status_code=status.HTTP_200_OK, content=retorno)
@@ -100,6 +101,7 @@ async def add_ranking_api(item: ModelUserNameExperience):
             "status":request["status"],
             "message":request["message"]
         }
+        print(f"ADD  ranking --------- {retorno}")
         return JSONResponse(status_code=status.HTTP_200_OK, content=retorno)
     except Exception as e:
         return_item = {"status":"Error", "message":e}
@@ -110,8 +112,18 @@ async def get_ranking_api():
     try:
         ranking = db.get_ranking()["ranking"]
         retorno = {
-            "ranking": str(ranking),
-            "message":"Ranking atualizado"
+            "ranking": ranking,
+            "message":"Ranking atualizado",
+            "player1_name": ranking[0]["player_name"],
+            "player1_xp": ranking[0]["player_experience"],
+            "player2_name": ranking[1]["player_name"],
+            "player2_xp": ranking[1]["player_experience"],
+            "player3_name": ranking[2]["player_name"],
+            "player3_xp": ranking[2]["player_experience"],
+            "player4_name": ranking[3]["player_name"],
+            "player4_xp": ranking[3]["player_experience"],
+            "player5_name": ranking[4]["player_name"],
+            "player5_xp": ranking[4]["player_experience"],
         }
         return JSONResponse(status_code=status.HTTP_200_OK, content=retorno)
     except Exception as e:

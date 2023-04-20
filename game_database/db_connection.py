@@ -126,7 +126,7 @@ class Database():
         try:
             self.cursor.execute(f"SELECT * FROM ranking WHERE 1 = 1 ORDER BY ranking.new_experience DESC LIMIT 5;")
             result = self.cursor.fetchall()
-            self.connection.commit()
+            self.connection.commit
             result = format_ranking(result)
             return {
                 "status":"Ok",

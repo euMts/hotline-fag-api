@@ -27,12 +27,11 @@ INSERT INTO users(user_name, created_at, updated_at, experience) VALUES ('Daniel
 INSERT INTO users(user_name, created_at, updated_at, experience) VALUES ('Luis', '2023-02-28 12:52:10', '2023-02-28 12:52:10', 0);
 
 -- Adicionar ao ranking pelo nome:
-INSERT INTO ranking(created_at, new_experience, user_id, user_name) VALUES ('2023-02-28 12:54:10', 20, (SELECT user_id FROM users WHERE users.user_name = "Matheus"), "Matheus");
-INSERT INTO ranking(created_at, new_experience, user_id, user_name) VALUES ('2023-02-28 12:54:10', 11, (SELECT user_id FROM users WHERE users.user_name = "Matheus"), "Matheus");
-INSERT INTO ranking(created_at, new_experience, user_id, user_name) VALUES ('2023-02-28 12:54:10', 22, (SELECT user_id FROM users WHERE users.user_name = "Daniel"), "Daniel");
-INSERT INTO ranking(created_at, new_experience, user_id, user_name) VALUES ('2023-02-28 12:54:10', 29, (SELECT user_id FROM users WHERE users.user_name = "Luis"), "Luis");
-INSERT INTO ranking(created_at, new_experience, user_id, user_name) VALUES ('2023-02-28 12:54:10', 39, (SELECT user_id FROM users WHERE users.user_name = "Daniel"), "Daniel");
-INSERT INTO ranking(created_at, new_experience, user_id, user_name) VALUES ('2023-02-28 12:54:10', 21, (SELECT user_id FROM users WHERE users.user_name = "Luis"), "Luis");
+INSERT INTO ranking(created_at, new_experience, user_id, user_name) VALUES ('2023-02-28 12:54:10', 0, (SELECT user_id FROM users WHERE users.user_name = "Matheus"), "Matheus");
+INSERT INTO ranking(created_at, new_experience, user_id, user_name) VALUES ('2023-02-28 12:54:10', 1, (SELECT user_id FROM users WHERE users.user_name = "Matheus"), "Matheus");
+INSERT INTO ranking(created_at, new_experience, user_id, user_name) VALUES ('2023-02-28 12:54:10', 1, (SELECT user_id FROM users WHERE users.user_name = "Daniel"), "Daniel");
+INSERT INTO ranking(created_at, new_experience, user_id, user_name) VALUES ('2023-02-28 12:54:10', 1, (SELECT user_id FROM users WHERE users.user_name = "Luis"), "Luis");
+INSERT INTO ranking(created_at, new_experience, user_id, user_name) VALUES ('2023-02-28 12:54:10', 2, (SELECT user_id FROM users WHERE users.user_name = "Luis"), "Luis");
 
 -- Verificar ranking:
 SELECT * FROM ranking WHERE 1 = 1 ORDER BY ranking.new_experience DESC LIMIT 5;
