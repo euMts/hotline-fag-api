@@ -31,10 +31,10 @@ INSERT INTO ranking(created_at, new_experience, user_id, user_name) VALUES ('202
 INSERT INTO ranking(created_at, new_experience, user_id, user_name) VALUES ('2023-02-28 12:54:10', 1, (SELECT user_id FROM users WHERE users.user_name = "Matheus"), "Matheus");
 INSERT INTO ranking(created_at, new_experience, user_id, user_name) VALUES ('2023-02-28 12:54:10', 1, (SELECT user_id FROM users WHERE users.user_name = "Daniel"), "Daniel");
 INSERT INTO ranking(created_at, new_experience, user_id, user_name) VALUES ('2023-02-28 12:54:10', 1, (SELECT user_id FROM users WHERE users.user_name = "Luis"), "Luis");
-INSERT INTO ranking(created_at, new_experience, user_id, user_name) VALUES ('2023-02-28 12:54:10', 2, (SELECT user_id FROM users WHERE users.user_name = "Luis"), "Luis");
+INSERT INTO ranking(created_at, new_experience, user_id, user_name) VALUES ('2023-02-28 12:54:10', 1, (SELECT user_id FROM users WHERE users.user_name = "Luis"), "Luis");
 
 -- Verificar ranking:
-SELECT * FROM ranking WHERE 1 = 1 ORDER BY ranking.new_experience DESC LIMIT 5;
+-- SELECT * FROM ranking WHERE 1 = 1 ORDER BY ranking.new_experience DESC LIMIT 5;
 
 -- Adicionar xp ao experience pelo nome:
 -- UPDATE users SET users.experience = users.experience + 10 WHERE users.user_name = 'Matheus';
@@ -43,4 +43,4 @@ SELECT * FROM ranking WHERE 1 = 1 ORDER BY ranking.new_experience DESC LIMIT 5;
 -- UPDATE users SET users.experience = users.experience - 10 WHERE users.user_name = 'Matheus';
 
 -- Verificar xp pelo nome
-SELECT users.experience FROM users WHERE users.user_name = 'Matheus';
+-- SELECT users.experience FROM users WHERE users.user_name = 'Matheus';
