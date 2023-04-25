@@ -8,14 +8,6 @@ from game_database.db_connection import Database
 
 # run: $ uvicorn main:app --reload
 
-class Item(BaseModel):
-    auth_code: str
-    instagram_user: str
-    github_user: str
-
-class Mensagem(BaseModel):
-    mensagem: str
-
 class ModelUserName(BaseModel):
     user_name: str
 
@@ -64,6 +56,7 @@ async def root():
 async def add_experience_api(item: ModelUserNameExperience):
     try:
         user_name = item.user_name
+        print(f"add experience -- {user_name}")
         experience = item.experience
         request = db.add_experience(user_name, experience)
         retorno = {
@@ -80,6 +73,7 @@ async def add_experience_api(item: ModelUserNameExperience):
 async def get_experience_api(item: ModelUserName):
     try:
         user_name = item.user_name
+        print(f"get experience -- {user_name}")
         experience = db.get_experience(user_name)["user_experience"]
         retorno = {
             "nome": user_name,
@@ -95,6 +89,7 @@ async def get_experience_api(item: ModelUserName):
 async def add_ranking_api(item: ModelUserNameExperience):
     try:
         user_name = item.user_name
+        print(f"add ranking -- {user_name}")
         new_experience = item.experience
         request = db.add_ranking(user_name, new_experience)
         retorno = {
